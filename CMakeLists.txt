@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.28)
+project(petcare)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 26)
+
+find_package(SFML COMPONENTS window graphics system audio)
+find_package(fmt REQUIRED)
+find_package(Boost COMPONENTS program_options REQUIRED)
+
+add_executable(
+  cppspice
+  src/cppspice.cpp
+  src/Config.cpp
+  #src/GameplaySubsystem.cpp
+  #src/GraphicsSubsystem.cpp
+  #src/HudSubsystem.cpp
+  src/InputSubsystem.cpp
+  src/MainLoop.cpp
+  #src/MusicSubsystem.cpp
+  #src/SoundSubsystem.cpp
+  src/TextureCache.cpp
+  #src/TitleScene.cpp
+  #src/TitleSubsystem.cpp
+  #src/Visual.cpp
+  #src/petcare.cpp
+)
+
+target_link_libraries(
+  cppspice
+  Boost::program_options
+  fmt::fmt
+  sfml-window
+  sfml-graphics
+  sfml-system
+  sfml-audio)
