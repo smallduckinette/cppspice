@@ -14,6 +14,11 @@ MainLoop::MainLoop(const config::Config& conf,
   //_gameplaySubsystem.load(conf);
   //
   _inputSubsystem.onQuit().connect([&]() { _quit.fire(); });
+
+  _inputSubsystem.onVertical().connect([&](double value) { _gameplaySubsystem.verticalMove(value); });
+  _inputSubsystem.onHorizontal().connect([&](double value) { _gameplaySubsystem.horizontalMove(value); });
+
+
   //_inputSubsystem.onCancel().connect([&]() { _previous.fire(); });
   //_inputSubsystem.onLeft().connect([&]() { _gameplaySubsystem.previous(); });
   //_inputSubsystem.onRight().connect([&]() { _gameplaySubsystem.next(); });
@@ -34,6 +39,7 @@ MainLoop::MainLoop(const config::Config& conf,
 void MainLoop::run()
 {
   _inputSubsystem.run();
+  _gameplaySubsystem.run();
 
   _window->clear();
 

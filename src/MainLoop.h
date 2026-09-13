@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Config.h"
-//#include "GameplaySubsystem.h"
+#include "GameplaySubsystem.h"
 //#include "GraphicsSubsystem.h"
 //#include "HudSubsystem.h"
 #include "InputSubsystem.h"
@@ -30,7 +30,7 @@ private:
 
   //GraphicsSubsystem _graphicsSubsystem;
   InputSubsystem _inputSubsystem;
-  //GameplaySubsystem _gameplaySubsystem;
+  GameplaySubsystem _gameplaySubsystem;
   //HudSubsystem _hudSubsystem;
 
   Signal<> _previous;

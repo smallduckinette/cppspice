@@ -12,7 +12,7 @@ add_executable(
   cppspice
   src/cppspice.cpp
   src/Config.cpp
-  #src/GameplaySubsystem.cpp
+  src/GameplaySubsystem.cpp
   #src/GraphicsSubsystem.cpp
   #src/HudSubsystem.cpp
   src/InputSubsystem.cpp
