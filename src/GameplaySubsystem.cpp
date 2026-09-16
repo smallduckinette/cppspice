@@ -35,6 +35,4 @@ void GameplaySubsystem::run()
   _playerY += _playerSpeedY * timeDiff;
 
   _playerMove.fire(_playerX, _playerY);
-
-  std::cout << _playerX << " - " << _playerY << std::endl;
 }

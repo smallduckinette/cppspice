@@ -13,7 +13,7 @@ add_executable(
   src/cppspice.cpp
   src/Config.cpp
   src/GameplaySubsystem.cpp
-  #src/GraphicsSubsystem.cpp
+  src/GraphicsSubsystem.cpp
   #src/HudSubsystem.cpp
   src/InputSubsystem.cpp
   src/MainLoop.cpp
@@ -22,8 +22,7 @@ add_executable(
   src/TextureCache.cpp
   #src/TitleScene.cpp
   #src/TitleSubsystem.cpp
-  #src/Visual.cpp
-  #src/petcare.cpp
+  src/Visual.cpp
 )
 
 target_link_libraries(

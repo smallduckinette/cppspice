@@ -14,6 +14,8 @@ namespace config
     std::filesystem::path _filename;
   };
 
+  using Animation = std::variant<std::monostate, float>;
+
   struct Entity
   {
     EntityID _entityID;

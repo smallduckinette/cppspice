@@ -6,11 +6,13 @@ MainLoop::MainLoop(const config::Config& conf,
                    TextureCache* textureCache):
   _window(window),
   //_soundSubsystem(soundSubsystem),
-  //_graphicsSubsystem(window, textureCache),
+  _graphicsSubsystem(window, textureCache),
   _inputSubsystem(window)
   //_hudSubsystem(window)
 {
-  //_graphicsSubsystem.load(conf);
+  auto playerId = conf._player._entityID;
+
+  _graphicsSubsystem.load(conf);
   //_gameplaySubsystem.load(conf);
   //
   _inputSubsystem.onQuit().connect([&]() { _quit.fire(); });
@@ -18,6 +20,7 @@ MainLoop::MainLoop(const config::Config& conf,
   _inputSubsystem.onVertical().connect([&](double value) { _gameplaySubsystem.verticalMove(value); });
   _inputSubsystem.onHorizontal().connect([&](double value) { _gameplaySubsystem.horizontalMove(value); });
 
+  _gameplaySubsystem.onPlayerMove().connect([&, playerId](double x, double y) { _graphicsSubsystem.setPosition(playerId, x, y); });
 
   //_inputSubsystem.onCancel().connect([&]() { _previous.fire(); });
   //_inputSubsystem.onLeft().connect([&]() { _gameplaySubsystem.previous(); });
@@ -43,7 +46,7 @@ void MainLoop::run()
 
   _window->clear();
 
-  //_graphicsSubsystem.run();
+  _graphicsSubsystem.run();
   //_hudSubsystem.run();
 
   _window->display();

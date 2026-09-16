@@ -5,7 +5,7 @@
 
 #include "Config.h"
 #include "GameplaySubsystem.h"
-//#include "GraphicsSubsystem.h"
+#include "GraphicsSubsystem.h"
 //#include "HudSubsystem.h"
 #include "InputSubsystem.h"
 #include "Scene.h"
@@ -28,7 +28,7 @@ public:
 private:
   sf::RenderWindow* _window;
 
-  //GraphicsSubsystem _graphicsSubsystem;
+  GraphicsSubsystem _graphicsSubsystem;
   InputSubsystem _inputSubsystem;
   GameplaySubsystem _gameplaySubsystem;
   //HudSubsystem _hudSubsystem;
